@@ -1,15 +1,46 @@
 #### Custom alias Oscabrera 15/01/2024
 
+### Update bash show branch
+parse_git_branch() {
+    git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+PS1='\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[31m\]$(__git_ps1 " (%s)")\[\033[00m\]$ '
+
 ## Functions
 
-# Go to a project
+# Move to a project
 function move_to_project () {
     local project_path=~/projects/$1
     if [ -z "$1" ]; then
         project_path=~/projects/
     fi
-    echo "Go to $project_path"
+
     cd "$project_path" || return
+}
+
+# Sudo pass
+function sup () {
+     local password="$1"
+    local command="$2"
+
+    if [ -z "$password" ]; then
+        sudo "$command"
+    else
+        echo "$password" | sudo -S bash -c "$command"
+    fi
+}
+
+# Up docker with password
+function docker_up_pass () {
+    local password="$1"
+    local docker_command="/etc/init.d/docker start"
+    
+     if [ -z "$password" ]; then
+        sudo $docker_command
+    else
+        sup "$password" "$docker_command"
+    fi
 }
 
 ## Commands
@@ -35,7 +66,7 @@ alias cdown='cd ~/own'
 alias cdcma='cdown && cd CommandsAliasCP'
 
 # Start service docker compose
-alias dcstart='sudo /etc/init.d/docker start'
+alias dcstart='docker_up_pass'
 # Docker Up
 alias dcup='docker compose up'
 # Docker Up
@@ -43,7 +74,7 @@ alias dcupd='dcup -d'
 # Docker down
 alias dcdown='docker compose down'
 # init minikube
-alias mkstart='minikube start'
+alias mkstart='cdpj && minikube start'
 
 ## change permissions to folder
 alias chmod-all='sudo chmod -R u=rwX,go=rwX'
@@ -60,4 +91,11 @@ alias abup='cdab && dcupd && cdpj'
 # open CommandsAliasCP
 alias opencma='cdcma && code . && cdpj'
 # up PCB
-alias cpup='cdcp && dcupd && dcupd && cdpj'
+alias pcbup='cdpcb && dcupd'
+
+#open phpstorm
+alias phpcode='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+
+
+#open WriterSide
+alias docsedit='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/Writerside/bin/writerside64.exe $(wslpath -w .)'
