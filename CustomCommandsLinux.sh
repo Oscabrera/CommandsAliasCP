@@ -78,7 +78,7 @@ alias mkstart='cdpj && minikube start'
 
 ## change permissions to folder
 alias chmod-all='sudo chmod -R u=rwX,go=rwX'
-# change permissions to storage 
+# change permissions to storage  
 alias fix-storage='chmod-all storage'
 
 # Generate sagger
@@ -96,6 +96,5 @@ alias pcbup='cdpcb && dcupd'
 #open phpstorm
 alias phpcode='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
 
-
-#open WriterSide
-alias docsedit='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/Writerside/bin/writerside64.exe $(wslpath -w .)'
+# into pod PCB
+alias pcbpod="kubectl exec -it $(kubectl get pods | grep pcb | awk '!/horizon/ {print $1}') -- bash"

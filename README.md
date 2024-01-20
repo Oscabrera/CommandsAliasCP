@@ -7,7 +7,7 @@ This project provides a set of optimized alias commands, designed to improve eff
 
 <p align="center"><img src="https://img.shields.io/badge/alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
 
-## Modify the ~/.bashrc file to add aliases
+# Modify the ~/.bashrc file to add aliases
 
 ## Steps:
 
@@ -15,7 +15,7 @@ This project provides a set of optimized alias commands, designed to improve eff
 
 2. Open the `~/.bashrc` file with your favorite text editor. You can use nano, gedit, vim or another editor.
 
-```bash
+```shell
 nano ~/.bashrc
 ```
 
@@ -23,7 +23,7 @@ nano ~/.bashrc
 
 5. To make a reference to the alias command file, add the following line to the end of the file.
 
-```bash
+```shell
 source pathThisProject/CommandsAliasCP/CustomCommandsLinux.sh
 ```
 
@@ -31,7 +31,7 @@ source pathThisProject/CommandsAliasCP/CustomCommandsLinux.sh
 
 7. Reload the ~/.bashrc file for the changes to take effect in the current terminal session.
 
-```bash
+```shell
 source ~/.bashrc
 ```
 
@@ -42,7 +42,7 @@ Now, the aliases you added will be available in your terminal session. You can c
 
 ## Update git branch display in terminal
 
-```bash
+```shell
 parse_git_branch() {
     git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
@@ -53,7 +53,7 @@ PS1='\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[31m\]$(__git_ps1 " (%s)")\[\033[0
 ## Functions
 
 ### Move to a project
-```bash
+```shell
 function move_to_project () {
     local project_path=~/projects/$1
     if [ -z "$1" ]; then
@@ -65,7 +65,7 @@ function move_to_project () {
 ```
 
 ### sudo pass
-```bash
+```shell
 function sup () {
      local password="$1"
     local command="$2"
@@ -79,7 +79,7 @@ function sup () {
 ```
 
 ### Up docker with password
-```bash
+```shell
 function docker_up_pass () {
     local password="$1"
     local docker_command="/etc/init.d/docker start"
@@ -94,99 +94,99 @@ function docker_up_pass () {
 ## Open applications from WSL to windows
 
 ### open phpstorm
-```bash
+```shell
 alias phpcode='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
 ```
 
 ## Commands
 
 ### reload sorce
-```bash
+```shell
 alias rlb='source ~/.bashrc'
 ```
 
 ### open CommandsAliasCP
-```bash
+```shell
 alias opencma='cdcma && code . && cdpj'
 ```
 ### Go to own
-```bash
+```shell
 alias cdown='cd ~/own'
 ```
 ### Go to CustomCommandsCP
-```bash
+```shell
 alias cdcma='cdown && cd CommandsAliasCP'
 ```
 
 ### Start service docker compose
-```bash
+```shell
 alias dcstart='docker_up_pass'
 ```
 ### Docker Up
-```bash
+```shell
 alias dcup='docker compose up'
 ```
 ### Docker Up
-```bash
+```shell
 alias dcupd='dcup -d'
 ```
 ### Docker down
-```bash
+```shell
 alias dcdown='docker compose down'
 ```
 ### init minikube
-```bash
+```shell
 alias mkstart='cdpj && minikube start'
 ```
 ### up CP
-```bash
+```shell
 alias cpup='cdcp && dcupd && cdpj'
 ```
 ### up AB
-```bash
+```shell
 alias abup='cdab && dcupd && cdpj'
 ```
 ### up PCB
-```bash
+```shell
 alias pcbup='cdpcb && dcupd'
 ```
 
 ### Go to Home
-```bash
+```shell
 alias cdhome='cd ~/'
 ```
 ### Go to projects 
-```bash
+```shell
 alias cdpj='move_to_project'
 ```
 ### Go to cp-shops-pcb 
-```bash
+```shell
 alias cdpcb='move_to_project cp-shops-pcb'
 ```
 ### Go to cp-web-desktop
-```bash
+```shell
 alias cdwd='move_to_project cp-web-desktop'
 ```
 ### Go to CP
-```bash
+```shell
 alias cdcp='move_to_project cp-shop'
 ```
 ### Go to AB
-```bash
+```shell
 alias cdab='move_to_project ab-shop'
 ```
 
 ### change permissions to folder
-```bash
+```shell
 alias chmod-all='sudo chmod -R u=rwX,go=rwX'
 ```
 ### change permissions to storage 
-```bash
+```shell
 alias fix-storage='chmod-all storage'
 ```
 
 ### Generate sagger
-```bash
+```shell
 alias fix-swagger='php artisan l5-swagger:generate'
 ```
 
@@ -194,5 +194,3 @@ alias fix-swagger='php artisan l5-swagger:generate'
 <br>
 <br>
 <img src="https://img.shields.io/badge/more_about-alias-black?labelColor=blue&link=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fhow-to-create-your-own-command-in-linux%2F%23%3A~%3Atext%3DWhat%2520are%2520Alias%2520commands%2520in%2Cthe%2520whole%2520command%2520is%2520run" alt="shields">
-
-
