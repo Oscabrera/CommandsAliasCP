@@ -88,13 +88,15 @@ alias fix-swagger='php artisan l5-swagger:generate'
 alias cpup='cdcp && dcupd && cdpj'
 # up AB
 alias abup='cdab && dcupd && cdpj'
-# open CommandsAliasCP
-alias opencma='cdcma && code . && cdpj'
 # up PCB
 alias pcbup='cdpcb && dcupd'
+# open CommandsAliasCP
+alias opencma='cdcma && code . && cdpj'
+# open CommandsAliasCP
+alias openpcb='cdpcb && codephp'
 
 #open phpstorm
-alias phpcode='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+alias phpcode='timeout 2s /mnt/c/Users/$USER/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
 
 # into pod PCB
 alias pcbpod="kubectl exec -it $(kubectl get pods | grep pcb | awk '!/horizon/ {print $1}') -- bash"

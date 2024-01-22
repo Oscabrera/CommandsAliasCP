@@ -1,8 +1,6 @@
 # CommandsAliasCP
 ##### Custom Alias
 
-![CommandsAliasCP](https://socialify.git.ci/Oscabrera/CommandsAliasCP/image?font=Inter&language=1&name=1&owner=1&pattern=Brick%20Wall&theme=Light)
-
 This project provides a set of optimized alias commands, designed to improve efficiency and user experience at the command line. It simplifies common tasks, speeds up system navigation, and provides intuitive shortcuts for common operations. Customize your environment with these carefully selected aliases to boost your productivity. Simplify your life in the terminal with this set of ready-to-use aliases!
 
 <p align="center"><img src="https://img.shields.io/badge/alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
@@ -109,6 +107,9 @@ alias rlb='source ~/.bashrc'
 ```shell
 alias opencma='cdcma && code . && cdpj'
 ```
+### open CommandsAliasCP
+```shell
+alias openpcb='cdpcb && codephp'
 ### Go to own
 ```shell
 alias cdown='cd ~/own'
