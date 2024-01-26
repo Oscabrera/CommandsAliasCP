@@ -1,9 +1,12 @@
-# CommandsAliasCP
+# Commands AliasCP
+
 ##### Custom Alias
 
-This project provides a set of optimized alias commands, designed to improve efficiency and user experience at the command line. It simplifies common tasks, speeds up system navigation, and provides intuitive shortcuts for common operations. Customize your environment with these carefully selected aliases to boost your productivity. Simplify your life in the terminal with this set of ready-to-use aliases!
+This project provides a set of optimized 
+alias commands, designed to improve efficiency and user experience at the command line. It simplifies common tasks, speeds up system navigation, and provides intuitive shortcuts for common operations. Customize your environment with these carefully selected aliases to boost your productivity. Simplify your life in the terminal with this set of ready-to-use aliases!
 
-<p align="center"><img src="https://img.shields.io/badge/alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
+<p align="center"><img src="https://img.shields.io/badge/
+alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
 
 # Modify the ~/.bashrc file to add aliases
 
@@ -11,7 +14,7 @@ This project provides a set of optimized alias commands, designed to improve eff
 
 1. Open a terminal.
 
-2. Open the `~/.bashrc` file with your favorite text editor. You can use nano, gedit, vim or another editor.
+2. Open the ```~/.bashrc``` file with your favorite text editor. You can use nano, gedit, vim or another editor.
 
 ```shell
 nano ~/.bashrc
@@ -19,7 +22,8 @@ nano ~/.bashrc
 
 4. Scroll to the end of the file.
 
-5. To make a reference to the alias command file, add the following line to the end of the file.
+5. To make a reference to the 
+alias command file, add the following line to the end of the file.
 
 ```shell
 source pathThisProject/CommandsAliasCP/CustomCommandsLinux.sh
@@ -27,19 +31,18 @@ source pathThisProject/CommandsAliasCP/CustomCommandsLinux.sh
 
 6. Save the changes and close the editor.
 
-7. Reload the ~/.bashrc file for the changes to take effect in the current terminal session.
+7. Reload the ```~/.bashrc``` file for the changes to take effect in the current terminal session.
 
 ```shell
 source ~/.bashrc
 ```
 
-Now, the aliases you added will be available in your terminal session. You can customize these aliases according to your needs. Remember that any changes to the ~/.bashrc file will only affect new terminal sessions or sessions that are reloaded after the changes are made.
-
+Now, the aliases you added will be available in your terminal session. You can customize these 
+aliases according to your needs. Remember that any changes to the ```~/.bashrc``` file will only affect new terminal sessions or sessions that are reloaded after the changes are made.
 
 # Content
 
-## Update git branch display in terminal
-
+### Update bash show branch
 ```shell
 parse_git_branch() {
     git rev-parse --abbrev-ref HEAD 2> /dev/null
@@ -62,7 +65,7 @@ function move_to_project () {
 }
 ```
 
-### sudo pass
+### Sudo pass
 ```shell
 function sup () {
      local password="$1"
@@ -76,9 +79,9 @@ function sup () {
 }
 ```
 
-### Up docker with password
+### Start service docker compose
 ```shell
-function docker_up_pass () {
+function dcstart () {
     local password="$1"
     local docker_command="/etc/init.d/docker start"
     
@@ -89,39 +92,124 @@ function docker_up_pass () {
     fi
 }
 ```
-## Open applications from WSL to windows
 
-### open phpstorm
+### Git add
 ```shell
-alias phpcode='timeout 2s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+function ga () {
+    git add $1
+}
+```
+
+### Into a principal pod of project
+```shell
+function into_to_pod () {
+    local project_path=~/projects/$1
+    if [ -z "$1" ]; then
+        echo 'project is required'
+    fi
+
+    kubectl exec -it $(kubectl get pods | grep $1 | awk '!/horizon/ {print $1}') -- bash
+}
 ```
 
 ## Commands
 
-### reload sorce
+## PCB
+
+### Go to cp-shops-pcb 
 ```shell
-alias rlb='source ~/.bashrc'
+alias pcbcd='move_to_project cp-shops-pcb'
+```
+### Open PCB
+```shell
+alias pcbcode='cdpcb && phpcode'
+```
+### Up PCB
+```shell
+alias pcbup='cdpcb && dcupd && cdpj'
+```
+### Into pod PCB
+```shell
+alias pcbpod="into_to_pod pcb"
 ```
 
-### open CommandsAliasCP
+## CP
+
+### Go to CP
 ```shell
-alias opencma='cdcma && code . && cdpj'
+alias cpcd='move_to_project cp-shop'
 ```
-### open CommandsAliasCP
+### Up CP
 ```shell
-alias openpcb='cdpcb && codephp'
-### Go to own
-```shell
-alias cdown='cd ~/own'
+alias cpup='cdcp && dcupd && cdpj'
 ```
-### Go to CustomCommandsCP
+### Open CP
 ```shell
-alias cdcma='cdown && cd CommandsAliasCP'
+alias cpcode='cdcp && phpcode && cdpj'
+```
+### Work on CP
+```shell
+alias cpwork='cdcp && phpcode && dcupd'
 ```
 
-### Start service docker compose
+## AB
+
+### Go to AB
 ```shell
-alias dcstart='docker_up_pass'
+alias abcd='move_to_project ab-shop'
+```
+### Up AB
+```shell
+alias abup='cdab && dcupd && cdpj'
+```
+### Open AB
+```shell
+alias abcode='cdab && phpcode && cdpj'
+```
+### Work on AB
+```shell
+alias abwork='cdab && phpcode && dcupd'
+```
+
+## Web desktop (nuxt)
+
+### Go to cp-web-desktop
+```shell
+alias wdcd='move_to_project cp-web-desktop'
+```
+### Up web-desktop this command does not release the terminal
+```shell
+alias wdup='wdcd && nrd'
+```
+### Open WD
+```shell
+alias wdcode='wdcd && phpcode'
+```
+### Work on WD
+```shell
+alias wdwork='wdcd && phpcode && nrd'
+```
+
+## CommandsAliasCP
+
+### Go to CommandsAliasCP
+```shell
+alias cmacd='cdown && cd CommandsAliasCP'
+```
+### Open CommandsAliasCP
+```shell
+alias cmacode='cdcma && phpcode && cdpj'
+```
+### Visual code CommandsAliasCP
+```shell
+alias cmavcode='cdcma && code . && cdpj'
+```
+
+## Docker composer 
+
+### Init minikube
+```shell
+alias mkstart='cdpj && minikube start'
 ```
 ### Docker Up
 ```shell
@@ -135,63 +223,56 @@ alias dcupd='dcup -d'
 ```shell
 alias dcdown='docker compose down'
 ```
-### init minikube
-```shell
-alias mkstart='cdpj && minikube start'
-```
-### up CP
-```shell
-alias cpup='cdcp && dcupd && cdpj'
-```
-### up AB
-```shell
-alias abup='cdab && dcupd && cdpj'
-```
-### up PCB
-```shell
-alias pcbup='cdpcb && dcupd'
-```
 
-### Go to Home
+## General
+
+### Reload sorce
+```shell
+alias rlb='source ~/.bashrc'
+```
+### Go to projects
 ```shell
 alias cdhome='cd ~/'
 ```
-### Go to projects 
+### Go to projects
 ```shell
 alias cdpj='move_to_project'
 ```
-### Go to cp-shops-pcb 
+### Go to own
 ```shell
-alias cdpcb='move_to_project cp-shops-pcb'
+alias cdown='cd ~/own'
 ```
-### Go to cp-web-desktop
+### Run dev script
 ```shell
-alias cdwd='move_to_project cp-web-desktop'
+alias nrd='npm run dev'
 ```
-### Go to CP
-```shell
-alias cdcp='move_to_project cp-shop'
-```
-### Go to AB
-```shell
-alias cdab='move_to_project ab-shop'
-```
-
-### change permissions to folder
+## Change permissions to folder
 ```shell
 alias chmod-all='sudo chmod -R u=rwX,go=rwX'
 ```
-### change permissions to storage 
+### Change permissions to storage  
 ```shell
 alias fix-storage='chmod-all storage'
 ```
-
 ### Generate sagger
 ```shell
 alias fix-swagger='php artisan l5-swagger:generate'
 ```
+### Open phpstorm
+```shell
+alias phpcode='timeout 2s /mnt/c/Users/$USER/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+```
+
+## Git
+ 
+### Check git status
+```shell
+alias gs="git status"
+```
 
 <br>
 <br>
 <br>
-<img src="https://img.shields.io/badge/more_about-alias-black?labelColor=blue&link=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fhow-to-create-your-own-command-in-linux%2F%23%3A~%3Atext%3DWhat%2520are%2520Alias%2520commands%2520in%2Cthe%2520whole%2520command%2520is%2520run" alt="shields">
+<img src="https://img.shields.io/badge/more_about-
+alias-black?labelColor=blue&link=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fhow-to-create-your-own-command-in-linux%2F%23%3A~%3Atext%3DWhat%2520are%2520Alias%2520commands%2520in%2Cthe%2520whole%2520command%2520is%2520run" alt="shields">
+
