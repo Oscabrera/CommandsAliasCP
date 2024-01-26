@@ -68,10 +68,10 @@ function into_to_pod () {
 alias pcbcd='move_to_project cp-shops-pcb'
 
 ### Open PCB
-alias pcbcode='cdpcb && phpcode'
+alias pcbcode='pcbcd && phpcode'
 
 ### Up PCB
-alias pcbup='cdpcb && dcupd && cdpj'
+alias pcbup='pcbcd && dcupd && cdpj'
 
 ### Into pod PCB
 alias pcbpod="into_to_pod pcb"
@@ -82,13 +82,13 @@ alias pcbpod="into_to_pod pcb"
 alias cpcd='move_to_project cp-shop'
 
 ### Up CP
-alias cpup='cdcp && dcupd && cdpj'
+alias cpup='cpcd && dcupd && cdpj'
 
 ### Open CP
-alias cpcode='cdcp && phpcode && cdpj'
+alias cpcode='cpcd && phpcode && cdpj'
 
 ### Work on CP
-alias cpwork='cdcp && phpcode && dcupd'
+alias cpwork='cpcd && phpcode && dcupd'
 
 ## AB
 
@@ -96,13 +96,13 @@ alias cpwork='cdcp && phpcode && dcupd'
 alias abcd='move_to_project ab-shop'
 
 ### Up AB
-alias abup='cdab && dcupd && cdpj'
+alias abup='abcd && dcupd && cdpj'
 
 ### Open AB
-alias abcode='cdab && phpcode && cdpj'
+alias abcode='abcd && phpcode && cdpj'
 
 ### Work on AB
-alias abwork='cdab && phpcode && dcupd'
+alias abwork='abcd && phpcode && dcupd'
 
 ## Web desktop (nuxt)
 
@@ -124,10 +124,10 @@ alias wdwork='wdcd && phpcode && nrd'
 alias cmacd='cdown && cd CommandsAliasCP'
 
 ### Open CommandsAliasCP
-alias cmacode='cdcma && phpcode && cdpj'
+alias cmacode='cmacd && phpcode && cdpj'
 
 ### Visual code CommandsAliasCP
-alias cmavcode='cdcma && code . && cdpj'
+alias cmavcode='cmacd && code . && cdpj'
 
 ## Docker composer 
 

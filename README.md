@@ -122,11 +122,11 @@ alias pcbcd='move_to_project cp-shops-pcb'
 ```
 ### Open PCB
 ```shell
-alias pcbcode='cdpcb && phpcode'
+alias pcbcode='pcbcd && phpcode'
 ```
 ### Up PCB
 ```shell
-alias pcbup='cdpcb && dcupd && cdpj'
+alias pcbup='pcbcd && dcupd && cdpj'
 ```
 ### Into pod PCB
 ```shell
@@ -141,15 +141,15 @@ alias cpcd='move_to_project cp-shop'
 ```
 ### Up CP
 ```shell
-alias cpup='cdcp && dcupd && cdpj'
+alias cpup='cpcd && dcupd && cdpj'
 ```
 ### Open CP
 ```shell
-alias cpcode='cdcp && phpcode && cdpj'
+alias cpcode='cpcd && phpcode && cdpj'
 ```
 ### Work on CP
 ```shell
-alias cpwork='cdcp && phpcode && dcupd'
+alias cpwork='cpcd && phpcode && dcupd'
 ```
 
 ## AB
@@ -160,15 +160,15 @@ alias abcd='move_to_project ab-shop'
 ```
 ### Up AB
 ```shell
-alias abup='cdab && dcupd && cdpj'
+alias abup='abcd && dcupd && cdpj'
 ```
 ### Open AB
 ```shell
-alias abcode='cdab && phpcode && cdpj'
+alias abcode='abcd && phpcode && cdpj'
 ```
 ### Work on AB
 ```shell
-alias abwork='cdab && phpcode && dcupd'
+alias abwork='abcd && phpcode && dcupd'
 ```
 
 ## Web desktop (nuxt)
@@ -198,11 +198,11 @@ alias cmacd='cdown && cd CommandsAliasCP'
 ```
 ### Open CommandsAliasCP
 ```shell
-alias cmacode='cdcma && phpcode && cdpj'
+alias cmacode='cmacd && phpcode && cdpj'
 ```
 ### Visual code CommandsAliasCP
 ```shell
-alias cmavcode='cdcma && code . && cdpj'
+alias cmavcode='cmacd && code . && cdpj'
 ```
 
 ## Docker composer 
