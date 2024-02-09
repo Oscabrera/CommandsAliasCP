@@ -50,7 +50,7 @@ function ga () {
     git add $1
 }
 
-### Into a principal pod of project
+### Into to principal pod of project
 function into_to_pod () {
     local project_path=~/projects/$1
     if [ -z "$1" ]; then
@@ -58,6 +58,16 @@ function into_to_pod () {
     fi
 
     kubectl exec -it $(kubectl get pods | grep $1 | awk '!/horizon/ {print $1}') -- bash
+}
+
+### show log principal pod of project
+function get_logs_pod () {
+    local project_path=~/projects/$1
+    if [ -z "$1" ]; then
+        echo 'project is required'
+    fi
+
+    kubectl logs $(kubectl get pods | grep $1 | awk '!/horizon/ {print $1}')
 }
 
 ## Commands
@@ -76,6 +86,12 @@ alias pcbup='pcbcd && dcupd && cdpj'
 ### Into pod PCB
 alias pcbpod="into_to_pod pcb"
 
+### show logs pcb
+alias pcblog="get_logs_pod pcb"
+
+### get all pods
+alias getpods="kubectl get pods"
+
 ## CP
 
 ### Go to CP
@@ -88,7 +104,7 @@ alias cpup='cpcd && dcupd && cdpj'
 alias cpcode='cpcd && phpcode && cdpj'
 
 ### Work on CP
-alias cpwork='cpcd && phpcode && dcupd'
+alias cpwork='cpcd && dcupd && phpcode'
 
 ## AB
 
@@ -102,7 +118,7 @@ alias abup='abcd && dcupd && cdpj'
 alias abcode='abcd && phpcode && cdpj'
 
 ### Work on AB
-alias abwork='abcd && phpcode && dcupd'
+alias abwork='abcd && dcupd && phpcode'
 
 ## Web desktop (nuxt)
 
@@ -117,6 +133,20 @@ alias wdcode='wdcd && phpcode'
 
 ### Work on WD
 alias wdwork='wdcd && phpcode && nrd'
+
+## Fake Backend
+
+### Go to Fake Backend
+alias fbcd='move_to_project cp-shops-fake-backend'
+
+### Up Fake Backend
+alias fbup='fbcd && dcupd && cdpj'
+
+### Open Fake Backend
+alias fbcode='fbcd && phpcode && cdpj'
+
+### Work on Fake Backend
+alias fbwork='fbcd && dcupd && phpcode'
 
 ## CommandsAliasCP
 

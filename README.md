@@ -112,6 +112,18 @@ function into_to_pod () {
 }
 ```
 
+### show log pod
+```shell
+function get_logs_pod () {
+    local project_path=~/projects/$1
+    if [ -z "$1" ]; then
+        echo 'project is required'
+    fi
+
+    kubectl logs $(kubectl get pods | grep $1 | awk '!/horizon/ {print $1}')
+}
+```
+
 ## Commands
 
 ## PCB
@@ -131,6 +143,14 @@ alias pcbup='pcbcd && dcupd && cdpj'
 ### Into pod PCB
 ```shell
 alias pcbpod="into_to_pod pcb"
+```
+### show logs pcb
+```shell
+alias pcblog="get_logs_pod pcb"
+```
+### get all pods
+```shell
+alias getpods="kubectl get pods"
 ```
 
 ## CP
