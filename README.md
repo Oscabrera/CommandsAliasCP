@@ -100,7 +100,7 @@ function ga () {
 }
 ```
 
-### Into a principal pod of project
+### Into to principal pod of project
 ```shell
 function into_to_pod () {
     local project_path=~/projects/$1
@@ -112,7 +112,7 @@ function into_to_pod () {
 }
 ```
 
-### show log pod
+### show log principal pod of project
 ```shell
 function get_logs_pod () {
     local project_path=~/projects/$1
@@ -208,6 +208,24 @@ alias wdcode='wdcd && phpcode'
 ### Work on WD
 ```shell
 alias wdwork='wdcd && phpcode && nrd'
+```
+## Fake Backend
+
+### Go to Fake Backend
+```shell
+alias fbcd='move_to_project cp-shops-fake-backend'
+```
+### Up Fake Backend
+```shell
+alias fbup='fbcd && dcupd && cdpj'
+```
+### Open Fake Backend
+```shell
+alias fbcode='fbcd && phpcode && cdpj'
+```
+### Work on Fake Backend
+```shell
+alias fbwork='fbcd && dcupd && phpcode'
 ```
 
 ## CommandsAliasCP
