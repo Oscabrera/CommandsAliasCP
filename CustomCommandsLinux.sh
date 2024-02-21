@@ -120,6 +120,20 @@ alias abcode='abcd && phpcode && cdpj'
 ### Work on AB
 alias abwork='abcd && dcupd && phpcode'
 
+## base-shops-microlith
+
+### Go to bmi
+alias bmicd='move_to_project base-shops-microlith'
+
+### Up bmi
+alias bmiup='bmicd && dcupd && nrd'
+
+### Open bmi
+alias bmicode='bmicd && phpcode && cdpj'
+
+### Work on bmi
+alias bmiwork='bmicd && dcupd && phpcode'
+
 ## Web desktop (nuxt)
 
 ### Go to cp-web-desktop
@@ -199,8 +213,11 @@ alias fix-storage='chmod-all storage'
 ### Generate sagger
 alias fix-swagger='php artisan l5-swagger:generate'
 
-### Open phpstorm
+### Open phpstorm, to Windows from WSL
 alias phpcode='timeout 2s /mnt/c/Users/$USER/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+
+### eval $(ssh-agent -s)
+alias ssha="eval $(ssh-agent -s)"
 
 ## Git
  
