@@ -2,7 +2,7 @@
 
 ##### Custom Alias
 
-![CommandsAliasCP](https://socialify.git.ci/Oscabrera/CommandsAliasCP/image?language=1&owner=1&name=1&stargazers=1&theme=Light)
+![CommandsAliasCP](https://socialify.git.ci/Oscabrera/CommandsAliasCP/image?language=1&owner=1&name=1&theme=Light)
 
 This project provides a set of optimized 
 alias commands, designed to improve efficiency and user experience at the command line. It simplifies common tasks, speeds up system navigation, and provides intuitive shortcuts for common operations. Customize your environment with these carefully selected aliases to boost your productivity. Simplify your life in the terminal with this set of ready-to-use aliases!
