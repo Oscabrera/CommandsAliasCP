@@ -5,8 +5,7 @@
 This project provides a set of optimized 
 alias commands, designed to improve efficiency and user experience at the command line. It simplifies common tasks, speeds up system navigation, and provides intuitive shortcuts for common operations. Customize your environment with these carefully selected aliases to boost your productivity. Simplify your life in the terminal with this set of ready-to-use aliases!
 
-<p align="center"><img src="https://img.shields.io/badge/
-alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
+<p align="center"><img src="https://img.shields.io/badge/alias-linux?style=for-the-badge&amp;logo=linux&amp;logoColor=white&amp;labelColor=32a848&amp;color=0f23d9" alt="shields"></p>
 
 # Modify the ~/.bashrc file to add aliases
 
@@ -333,6 +332,5 @@ alias gs="git status"
 <br>
 <br>
 <br>
-<img src="https://img.shields.io/badge/more_about-
-alias-black?labelColor=blue&link=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fhow-to-create-your-own-command-in-linux%2F%23%3A~%3Atext%3DWhat%2520are%2520Alias%2520commands%2520in%2Cthe%2520whole%2520command%2520is%2520run" alt="shields">
+<img src="https://img.shields.io/badge/more_about-alias-black?labelColor=blue&link=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fhow-to-create-your-own-command-in-linux%2F%23%3A~%3Atext%3DWhat%2520are%2520Alias%2520commands%2520in%2Cthe%2520whole%2520command%2520is%2520run" alt="shields">
 
