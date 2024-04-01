@@ -34,7 +34,7 @@ function sup () {
 }
 
 ### Start service docker compose
-function dcstart () {
+function dcinit () {
     local password="$1"
     local docker_command="/etc/init.d/docker start"
     
@@ -176,7 +176,7 @@ alias cmavcode='cmacd && code . && cdpj'
 ## Docker composer 
 
 ### Init minikube
-alias mkstart='cdpj && minikube start'
+alias mkinit='cdpj && minikube start'
 
 ### Docker Up
 alias dcup='docker compose up'
@@ -214,7 +214,7 @@ alias fix-storage='chmod-all storage'
 alias fix-swagger='php artisan l5-swagger:generate'
 
 ### Open phpstorm, to Windows from WSL
-alias phpcode='timeout 2s /mnt/c/Users/$USER/AppData/Local/Programs/PhpStorm\ 2/bin/phpstorm64.exe $(wslpath -w .)'
+alias phpcode='timeout 3s /mnt/c/Users/oscabrera/AppData/Local/Programs/PhpStorm/bin/phpstorm64.exe $(wslpath -w .)'
 
 ### eval $(ssh-agent -s)
 alias ssha="eval $(ssh-agent -s)"
@@ -223,3 +223,6 @@ alias ssha="eval $(ssh-agent -s)"
  
 ### Check git status
 alias gs="git status"
+
+### Composer install
+alias composerinstall="composer install --ignore-platform-reqs"
