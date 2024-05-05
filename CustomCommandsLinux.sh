@@ -126,7 +126,7 @@ alias abwork='abcd && dcupd && phpcode'
 alias bmicd='move_to_project base-shops-microlith'
 
 ### Up bmi
-alias bmiup='bmicd && dcupd && nrd'
+alias bmiup='bmicd && dcupd'
 
 ### Open bmi
 alias bmicode='bmicd && phpcode && cdpj'
