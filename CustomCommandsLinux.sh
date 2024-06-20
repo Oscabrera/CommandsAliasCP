@@ -70,6 +70,26 @@ function get_logs_pod () {
     kubectl logs $(kubectl get pods | grep $1 | awk '!/horizon/ {print $1}')
 }
 
+### Into to horizon pod of project
+function into_to_pod_horizon () {
+    local project_path=~/projects/$1
+    if [ -z "$1" ]; then
+        echo 'project is required'
+    fi
+
+    kubectl exec -it $(kubectl get pods | grep $1 | awk '/horizon/ {print $1}') -- bash
+}
+
+### show log horizon pod of project
+function get_logs_pod_horizon () {
+    local project_path=~/projects/$1
+    if [ -z "$1" ]; then
+        echo 'project is required'
+    fi
+
+    kubectl logs $(kubectl get pods | grep $1 | awk '/horizon/ {print $1}')
+}
+
 ## Commands
 
 ## PCB
@@ -91,6 +111,12 @@ alias pcblog="get_logs_pod pcb"
 
 ### get all pods
 alias getpods="kubectl get pods"
+
+### Into pod PCB
+alias pcbpodh="into_to_pod_horizon pcb"
+
+### show logs pcb
+alias pcblogh="get_logs_pod_horizon pcb"
 
 ## CP
 
